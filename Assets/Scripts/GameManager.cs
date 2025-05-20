@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour {
   public int score { get; private set; }
   public int lives { get; private set; }
 
+  public int ghostMultiplier { get; private set; } = 1;
+
   private void Start() {
     InitGame();
   }
@@ -34,6 +36,7 @@ public class GameManager : MonoBehaviour {
   }
 
   private void Reset() {
+    ResetGhostMultiplier();
     foreach (Ghost ghost in ghosts) {
       ghost.gameObject.SetActive(true);
     }
@@ -58,7 +61,8 @@ public class GameManager : MonoBehaviour {
   }
 
   public void EatGhost(Ghost ghost) {
-    SetScore(this.score + ghost.m_GhostPoints);
+    SetScore(this.score + (ghost.m_GhostPoints * ghostMultiplier));
+    ghostMultiplier++;
   }
 
   public void EatPacman() {
@@ -76,13 +80,15 @@ public class GameManager : MonoBehaviour {
     SetScore(this.score + pellet.points);
     pellet.gameObject.SetActive(false);
     if (!CheckPellets()) {
-      NewLevel();
+      this.pacman.gameObject.SetActive(false);
+      Invoke(nameof(NewLevel), 3.0f);
     }
   }
 
   public void EatPowerPellet(PowerPellet powerPellet) {
     EatPellet(powerPellet);
-    //TODO: add ghost scared state
+    CancelInvoke();
+    Invoke(nameof(ResetGhostMultiplier), powerPellet.duration);
   }
 
   private bool CheckPellets() {
@@ -93,5 +99,9 @@ public class GameManager : MonoBehaviour {
     }
 
     return false;
+  }
+
+  private void ResetGhostMultiplier() {
+    this.ghostMultiplier = 1;
   }
 }
