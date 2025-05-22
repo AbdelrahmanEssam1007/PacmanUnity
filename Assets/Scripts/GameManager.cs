@@ -32,16 +32,16 @@ public class GameManager : MonoBehaviour {
       pellet.gameObject.SetActive(true);
     }
 
-    Reset();
+    ResetState();
   }
 
-  private void Reset() {
+  private void ResetState() {
     ResetGhostMultiplier();
     foreach (Ghost ghost in ghosts) {
-      ghost.gameObject.SetActive(true);
+      ghost.ResetState();
     }
 
-    pacman.gameObject.SetActive(true);
+    pacman.ResetState();
   }
 
   private void GameOver() {
@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour {
     this.pacman.gameObject.SetActive(false);
     SetLives(this.lives - 1);
     if (this.lives > 0) {
-      Invoke(nameof(Reset), 3.0f);
+      Invoke(nameof(ResetState), 3.0f);
     }
     else {
       GameOver();
@@ -104,4 +104,5 @@ public class GameManager : MonoBehaviour {
   private void ResetGhostMultiplier() {
     this.ghostMultiplier = 1;
   }
+  
 }

@@ -1,16 +1,27 @@
 using UnityEngine;
 
-public class GhostBehaviour : MonoBehaviour
-{
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+[RequireComponent(typeof(Ghost))]
+public abstract class GhostBehaviour : MonoBehaviour {
+  public Ghost ghost { get; private set; }
+  public float duration;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  private void Awake() {
+    this.ghost = GetComponent<Ghost>();
+    this.enabled = false;
+  }
+
+  public void Enable() {
+    Enable(this.duration);
+  }
+
+  public virtual void Enable(float duration) {
+    this.enabled = true;
+    CancelInvoke();
+    Invoke(nameof(Disable), duration);
+  }
+
+  public virtual void Disable() {
+    this.enabled = false;
+    CancelInvoke();
+  }
 }
