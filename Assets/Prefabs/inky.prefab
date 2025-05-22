@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: initDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4020876375857522806, guid: b52dd669508981a468814f8df33615b8, type: 3}
+      propertyPath: initBehaviour
+      value: 
+      objectReference: {fileID: 9075833565968426197, guid: d22e15aa5dc97cd4f889b34f3f018d42, type: 3}
     - target: {fileID: 4536428112910428558, guid: b52dd669508981a468814f8df33615b8, type: 3}
       propertyPath: m_Sprite
       value: 

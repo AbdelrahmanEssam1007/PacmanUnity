@@ -23,7 +23,13 @@ public class Pacman : MonoBehaviour {
     else if (Keyboard.current.dKey.wasPressedThisFrame || Keyboard.current.rightArrowKey.wasPressedThisFrame) {
       this.movement.SetDirection(Vector2.right);
     }
+    
     float angle = Mathf.Atan2(this.movement.direction.y, this.movement.direction.x) * Mathf.Rad2Deg;
     this.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+  }
+  
+  public void ResetState() {
+    this.movement.ResetState();
+    this.gameObject.SetActive(true);
   }
 }

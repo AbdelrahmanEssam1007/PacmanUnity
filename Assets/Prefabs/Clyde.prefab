@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: initDirection.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4020876375857522806, guid: b52dd669508981a468814f8df33615b8, type: 3}
+      propertyPath: initBehaviour
+      value: 
+      objectReference: {fileID: 9075833565968426197}
     - target: {fileID: 4536428112910428558, guid: b52dd669508981a468814f8df33615b8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -73,3 +77,14 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b52dd669508981a468814f8df33615b8, type: 3}
+--- !u!114 &9075833565968426197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1865391807522983308, guid: b52dd669508981a468814f8df33615b8, type: 3}
+  m_PrefabInstance: {fileID: 7210515332384532825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3fc6d8879d3f245919d114835330f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
