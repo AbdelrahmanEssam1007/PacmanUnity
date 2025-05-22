@@ -34,7 +34,7 @@ public class Movement : MonoBehaviour {
     this.direction = this.initDirection;
     this.nextDirection = Vector2.zero;
     this.transform.position = this.startingPosition;
-    this.rigidBody.bodyType = RigidbodyType2D.Static;
+    this.rigidBody.bodyType = RigidbodyType2D.Dynamic;
     this.enabled = true;
   }
   private void FixedUpdate() {

@@ -38,14 +38,14 @@ public class Ghost : MonoBehaviour {
     }
   }
 
-  // private void OnCollisionEnter2D(Collision2D other) {
-  //   if (other.gameObject.layer == LayerMask.NameToLayer("Pacman")) {
-  //     if (this.scared.enabled) {
-  //       FindFirstObjectByType<GameManager>().EatGhost(this);
-  //     }
-  //     else {
-  //       FindFirstObjectByType<GameManager>().EatPacman();
-  //     }
-  //  }
-  // }
+  private void OnCollisionEnter2D(Collision2D other) {
+    if (other.gameObject.layer == LayerMask.NameToLayer("Pacman")) {
+      if (this.scared.enabled) {
+        FindFirstObjectByType<GameManager>().EatGhost(this);
+      }
+      else {
+        FindFirstObjectByType<GameManager>().EatPacman();
+      }
+   }
+  }
 }
