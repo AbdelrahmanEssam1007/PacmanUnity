@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour {
   public Ghost[] ghosts;
@@ -16,7 +17,7 @@ public class GameManager : MonoBehaviour {
   }
 
   private void Update() {
-    if (this.lives <= 0 && Input.GetKeyDown(KeyCode.Return)) {
+    if (this.lives <= 0 && Keyboard.current.enterKey.wasPressedThisFrame) {
       InitGame();
     }
   }

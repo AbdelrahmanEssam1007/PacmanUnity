@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Ghost))]
@@ -7,6 +8,9 @@ public abstract class GhostBehaviour : MonoBehaviour {
 
   private void Awake() {
     this.ghost = GetComponent<Ghost>();
+  }
+
+  private void Start() {
     this.enabled = false;
   }
 
